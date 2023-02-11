@@ -15,11 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
         GnomeCurrencyText.text = "0 Gnomes";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     
 
