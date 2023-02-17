@@ -1,22 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BreakInfinity;
 using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Controller : MonoBehaviour
 {
-    public TMP_Text GnomeCurrencyText;
+    public Data data;
 
+    public TMP_Text GnomesText;
 
-
-
-    void Start()
+    
+    // Start is called before the first frame update
+    private void Start()
     {
-        GnomeCurrencyText.text = "0 Gnomes";
+        data = new Data();
     }
 
     
 
-    
+    public void GnomeClick()
+    {
+        data.Gnomes += data.GnomesPerClick;
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        GnomesText.text = data.Gnomes + " Gnomes";
+    }
 }
