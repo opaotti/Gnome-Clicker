@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BreakInfinity;
 using TMPro;
 
-public class Controller : MonoBehaviour
+public class Stats : MonoBehaviour
 {
-    public Data data;
-
 
     public TMP_Text GpS;
     public TMP_Text GpClick;
@@ -15,35 +12,22 @@ public class Controller : MonoBehaviour
     public TMP_Text GinBank;
     public TMP_Text GTOTAL;
 
-    public TMP_Text GnomesText;
+    public Data data;
 
-    
+
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
         data = new Data();
-    }
-
-    
-
-    public void GnomeClick()
-    {
-        data.Gnomes += data.GnomesPerClick;
-        data.GnomeProducedTotal += data.GnomesPerClick;
-        data.TotalClicks++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GnomesText.text = data.Gnomes + " Gnomes";
-
         GpS.text = "GpS: " + data.GnomesPerSecond;
         GpClick.text = "Gnomes per Click: " + data.GnomesPerClick;
         Clicks.text = "Total Gnome-Clicks: " + data.TotalClicks;
         GinBank.text = "Gnomes in Bank: " + data.Gnomes;
         GTOTAL.text = " total produced Gnomes: " + data.GnomeProducedTotal;
-
-
     }
 }
