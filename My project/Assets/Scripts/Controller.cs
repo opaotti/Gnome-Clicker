@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BreakInfinity;
 using TMPro;
+using System;
 
 public class Controller : MonoBehaviour
 {
@@ -17,11 +18,20 @@ public class Controller : MonoBehaviour
 
     public TMP_Text GnomesText;
 
-    
+    Vector2 a = new Vector2(10, 20);
+    Vector2 b = new Vector2(0, 0);
+
+
+
     // Start is called before the first frame update
     private void Start()
     {
         data = new Data();
+
+        Debug.Log("a: " + a);
+        Debug.Log("b: " + b);
+        Debug.Log("b-a: " + (b - a));
+
     }
 
     
@@ -45,5 +55,20 @@ public class Controller : MonoBehaviour
         GTOTAL.text = " total produced Gnomes: " + data.GnomeProducedTotal;
 
 
+    }
+
+    public void BuyBuilding(BigDouble AktuellerPrice, int owned, int freeOwned)
+    {
+        if (data.Gnomes >= AktuellerPrice)
+        {
+            data.Gnomes -= AktuellerPrice;
+            AktuellerPrice = NewPriceB(AktuellerPrice, owned, freeOwned);
+            owned++;
+        }
+    }
+
+    public BigDouble NewPriceB(BigDouble OldPrice, double BuildingsOwned, double FreeBuildingOwned)
+    {
+        return OldPrice * Math.Pow(1.15, BuildingsOwned - FreeBuildingOwned);
     }
 }
