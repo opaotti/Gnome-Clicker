@@ -28,10 +28,6 @@ public class Controller : MonoBehaviour
     {
         data = new Data();
 
-        Debug.Log("a: " + a);
-        Debug.Log("b: " + b);
-        Debug.Log("b-a: " + (b - a));
-
     }
 
     
