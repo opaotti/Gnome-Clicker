@@ -5,11 +5,13 @@ using BreakInfinity;
 
 public class Data
 {
-    public BigDouble Gnomes;
-    public BigDouble GnomesPerClick;
-    public BigDouble GnomesPerSecond;
-    public BigDouble TotalClicks;
-    public BigDouble GnomeProducedTotal;
+    public double Gnomes;
+    public double GnomesPerClick;
+    public double GnomesPerSecond;
+    public double TotalClicks;
+    public double GnomeProducedTotal;
+
+    public int ChadAnzahl;
 
     public Data()
     {
@@ -18,6 +20,10 @@ public class Data
         GnomesPerSecond = 0;
         TotalClicks = 0;
         GnomeProducedTotal = 0;
+
+        ChadAnzahl = 0;
+
+
     }
 
     

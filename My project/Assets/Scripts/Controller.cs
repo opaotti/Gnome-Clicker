@@ -21,6 +21,8 @@ public class Controller : MonoBehaviour
     Vector2 a = new Vector2(10, 20);
     Vector2 b = new Vector2(0, 0);
 
+    private double OhneKommaV;
+
 
 
     // Start is called before the first frame update
@@ -47,13 +49,13 @@ public class Controller : MonoBehaviour
         GpS.text = "GpS: " + data.GnomesPerSecond;
         GpClick.text = "Gnomes per Click: " + data.GnomesPerClick;
         Clicks.text = "Total Gnome-Clicks: " + data.TotalClicks;
-        GinBank.text = "Gnomes in Bank: " + data.Gnomes;
-        GTOTAL.text = " total produced Gnomes: " + data.GnomeProducedTotal;
+        GinBank.text = "Gnomes in Bank: " + OhneKomma(data.Gnomes);
+        GTOTAL.text = " total produced Gnomes: " + OhneKomma(data.GnomeProducedTotal);
 
-
+        ZeitTick();
     }
 
-    public void BuyBuilding(BigDouble AktuellerPrice, int owned, int freeOwned)
+    public void BuyBuilding(double AktuellerPrice, int owned, int freeOwned)
     {
         if (data.Gnomes >= AktuellerPrice)
         {
@@ -63,8 +65,38 @@ public class Controller : MonoBehaviour
         }
     }
 
-    public BigDouble NewPriceB(BigDouble OldPrice, double BuildingsOwned, double FreeBuildingOwned)
+    public double NewPriceB(double OldPrice, double BuildingsOwned, double FreeBuildingOwned)
     {
         return OldPrice * Math.Pow(1.15, BuildingsOwned - FreeBuildingOwned);
     }
+
+    public void BuyB(int ID, int Anzahl)
+    {
+        if (ID == 0)
+        {
+            Debug.Log("war nen Test");
+        }
+        if (ID == 1)
+        {
+            data.ChadAnzahl += Anzahl;
+        }
+        
+    }
+
+    public void ZeitTick()
+    {
+        System.Threading.Thread.Sleep(10); //0.01 Sekunde
+        
+    }
+
+    public double OhneKomma(double Nummer)
+    {
+        OhneKommaV = Nummer;
+        while (OhneKommaV >= 1)
+        {
+            OhneKommaV--;
+        }
+        return Nummer - OhneKommaV;
+    }
+
 }

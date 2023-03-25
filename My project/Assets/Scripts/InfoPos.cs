@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InfoPos : MonoBehaviour
 {
@@ -10,6 +12,17 @@ public class InfoPos : MonoBehaviour
     public Transform TransParent;
 
     private Vector3 zero = new Vector3(0, 0, 0);
+
+    public TMP_Text InfoText;
+    public TMP_Text NameText;
+    public TMP_Text GpSText;
+
+    public BuyingBuilding BuyingBuilding;
+
+    public string Description;
+
+    public GameObject Profil;
+    public GameObject ProfilInfo;
 
 
     private void Start()
@@ -22,6 +35,12 @@ public class InfoPos : MonoBehaviour
 
         Debug.Log("TransParent: " + TransParent.position);
         Debug.Log("Info: " + Info.transform.position);
+
+        NameText.text = BuyingBuilding.Name;
+        GpSText.text = BuyingBuilding.GpSB.ToString() + " GpS";
+        InfoText.text = Description;
+
+
     }
 
     public void show()
@@ -33,6 +52,8 @@ public class InfoPos : MonoBehaviour
     {
         Info.gameObject.SetActive(false);
     }
+
+    
 
 
 

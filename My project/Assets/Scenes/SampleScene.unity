@@ -2722,12 +2722,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3802244788513187413, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
       propertyPath: m_Name
-      value: Building
+      value: Chad
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: GpSB
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: Name
+      value: Chad
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: StartPrice
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1539448139}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: GpSB.exponent
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: GpSB.mantissa
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: AktuellerPriceB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: AktuellerPriceB.exponent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100197352988607689, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: AktuellerPriceB.mantissa
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729204355115095514, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: Description
+      value: "Ein Chad der alle 10 Sekunden f\xFCr dich klickt."
       objectReference: {fileID: 0}
     - target: {fileID: 5729204355115095514, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
       propertyPath: TransParent
       value: 
       objectReference: {fileID: 741246209}
+    - target: {fileID: 7765886168345371373, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e78b8f13e96cfe4989852d2e28c0ab5, type: 3}
+    - target: {fileID: 8080806344045482017, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e78b8f13e96cfe4989852d2e28c0ab5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: defef2bebb3d8994f8ceb43542ed3bf1, type: 3}
 --- !u!224 &7073788457021771291 stripped

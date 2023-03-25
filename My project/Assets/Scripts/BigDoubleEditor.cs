@@ -4,7 +4,7 @@ using UnityEditor;
 
 namespace BreakInfinity
 {
-    [CustomPropertyDrawer(typeof(BigDouble))]
+    [CustomPropertyDrawer(typeof(@double))]
     public class BigDoubleDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -35,7 +35,7 @@ namespace BreakInfinity
 
             if (EditorGUI.EndChangeCheck())
             {
-                var normalized = BigDouble.Normalize(mantissa, exponent);
+                var normalized = @double.Normalize(mantissa, exponent);
                 mantissaProperty.doubleValue = normalized.Mantissa;
                 exponentProperty.longValue = normalized.Exponent;
             }
