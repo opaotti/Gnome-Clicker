@@ -28,7 +28,7 @@ public class BuyingBuilding : MonoBehaviour
         AktuellerPriceB = StartPrice;
 
         OwnedText.text = owned.ToString();
-        PriceText.text = "Buy: " + "\n" + StartPrice.ToString() + "Gnomes";
+        PriceText.text = "Buy: " + "\n" + StartPrice.ToString() + " Gnomes";
         NameText.text = Name;
     }
 
@@ -44,7 +44,7 @@ public class BuyingBuilding : MonoBehaviour
             controller.data.Gnomes -= AktuellerPriceB;
             AktuellerPriceB = controller.OhneKomma(StartPrice * Math.Pow(1.15, (owned - freeOwned)))+1;
             controller.BuyB(1, 1);
-            PriceText.text = "Buy: " + AktuellerPriceB.ToString() + "\n" + "Gnomes";
+            PriceText.text = "Buy: " + AktuellerPriceB.ToString() + " " + " Gnomes";
             OwnedText.text = owned.ToString();
         }
     }

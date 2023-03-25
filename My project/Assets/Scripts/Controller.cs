@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GnomesText.text = data.Gnomes + " Gnomes";
+        GnomesText.text = OhneKomma(data.Gnomes) + " Gnomes";
 
         GpS.text = "GpS: " + data.GnomesPerSecond;
         GpClick.text = "Gnomes per Click: " + data.GnomesPerClick;
@@ -86,7 +86,9 @@ public class Controller : MonoBehaviour
     public void ZeitTick()
     {
         System.Threading.Thread.Sleep(10); //0.01 Sekunde
-        
+        data.Gnomes += data.GnomesPerSecond*0.01;
+        data.GnomeProducedTotal += data.GnomesPerSecond*0.01;
+
     }
 
     public double OhneKomma(double Nummer)
@@ -99,4 +101,5 @@ public class Controller : MonoBehaviour
         return Nummer - OhneKommaV;
     }
 
+   
 }
