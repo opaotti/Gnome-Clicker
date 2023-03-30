@@ -10,9 +10,13 @@ public class Data
     public double GnomesPerSecond;
     public double TotalClicks;
     public double GnomeProducedTotal;
+    public double StonksMulti;
+
+    public bool BuildingsShown=true;
 
     public int ChadAnzahl;
-
+    public int PepeAnzahl;
+    public int BongoCatAnzahl;
     public Data()
     {
         Gnomes = 0;
@@ -20,8 +24,13 @@ public class Data
         GnomesPerSecond = 0;
         TotalClicks = 0;
         GnomeProducedTotal = 0;
+        StonksMulti = 0;
 
         ChadAnzahl = 0;
+        PepeAnzahl = 0;
+        BongoCatAnzahl=0;
+
+        BuildingsShown= true;
 
 
     }

@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour
     public TMP_Text Clicks;
     public TMP_Text GinBank;
     public TMP_Text GTOTAL;
+    public TMP_Text StonksMultiText;
 
     public TMP_Text GnomesText;
 
@@ -51,6 +52,7 @@ public class Controller : MonoBehaviour
         Clicks.text = "Total Gnome-Clicks: " + data.TotalClicks;
         GinBank.text = "Gnomes in Bank: " + OhneKomma(data.Gnomes);
         GTOTAL.text = " total produced Gnomes: " + OhneKomma(data.GnomeProducedTotal);
+        StonksMultiText.text = "Stonks Multiplier: +" + data.StonksMulti*100 + "%";
 
         ZeitTick();
     }
@@ -80,14 +82,22 @@ public class Controller : MonoBehaviour
         {
             data.ChadAnzahl += Anzahl;
         }
+        if (ID == 2)
+        {
+            data.PepeAnzahl += Anzahl;
+        }
+        if (ID == 3)
+        {
+            data.BongoCatAnzahl += Anzahl;
+        }
         
     }
 
     public void ZeitTick()
     {
         System.Threading.Thread.Sleep(10); //0.01 Sekunde
-        data.Gnomes += data.GnomesPerSecond*0.01;
-        data.GnomeProducedTotal += data.GnomesPerSecond*0.01;
+        data.Gnomes += data.GnomesPerSecond*0.01*(data.StonksMulti+1);
+        data.GnomeProducedTotal += data.GnomesPerSecond*0.01 * (data.StonksMulti + 1);
 
     }
 
@@ -101,5 +111,8 @@ public class Controller : MonoBehaviour
         return Nummer - OhneKommaV;
     }
 
-   
+   public void Hack()
+    {
+        data.Gnomes += 10000;
+    }
 }

@@ -11,7 +11,7 @@ public class InfoPos : MonoBehaviour
 
     public Transform TransParent;
 
-    private Vector3 zero = new Vector3(0, 0, 0);
+    private Vector3 zero = new Vector3(0, 0, -1);
 
     public TMP_Text InfoText;
     public TMP_Text NameText;

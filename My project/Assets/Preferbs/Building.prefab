@@ -846,16 +846,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  AktuellerPriceB:
-    mantissa: 0
-    exponent: 0
+  AktuellerPriceB: 0
   owned: 0
-  GpSB:
-    mantissa: 0
-    exponent: 0
+  StartPrice: 0
+  ID: 0
+  GpSB: 0
   PriceText: {fileID: 3328205515993345159}
   OwnedText: {fileID: 8142714033181753340}
   NameText: {fileID: 662925327406167896}
+  Building: {fileID: 3802244788513187413}
   Name: Mr. X
 --- !u!1 &3974732449161540099
 GameObject:
