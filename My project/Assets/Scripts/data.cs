@@ -17,6 +17,12 @@ public class Data
     public int ChadAnzahl;
     public int PepeAnzahl;
     public int BongoCatAnzahl;
+
+    public int UpgradesShowed=0; //Anzahl Upgrades die angezeigt werden
+
+    public Dictionary<int, string> IDNames = new Dictionary<int, string>();
+    
+
     public Data()
     {
         Gnomes = 0;
@@ -31,6 +37,10 @@ public class Data
         BongoCatAnzahl=0;
 
         BuildingsShown= true;
+
+        IDNames.Add(1, "Chad");
+        IDNames.Add(2, "Pepe");
+        IDNames.Add(3, "Bongo Cat");
 
 
     }

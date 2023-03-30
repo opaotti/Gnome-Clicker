@@ -15,6 +15,7 @@ public class Stats : MonoBehaviour
     public Data data;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
