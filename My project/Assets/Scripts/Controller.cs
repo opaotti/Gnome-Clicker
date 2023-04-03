@@ -24,6 +24,8 @@ public class Controller : MonoBehaviour
 
     private double OhneKommaV;
 
+    public int BongoCatAnzahl;
+
 
 
     // Start is called before the first frame update
@@ -31,14 +33,16 @@ public class Controller : MonoBehaviour
     {
         data = new Data();
 
+        BongoCatAnzahl= data.BongoCatAnzahl;
+
     }
 
     
 
     public void GnomeClick()
     {
-        data.Gnomes += data.GnomesPerClick;
-        data.GnomeProducedTotal += data.GnomesPerClick;
+        data.Gnomes += data.GnomesPerClick*data.ClickMulti;
+        data.GnomeProducedTotal += data.GnomesPerClick*data.ClickMulti;
         data.TotalClicks++;
     }
 
@@ -53,6 +57,8 @@ public class Controller : MonoBehaviour
         GinBank.text = "Gnomes in Bank: " + OhneKomma(data.Gnomes);
         GTOTAL.text = " total produced Gnomes: " + OhneKomma(data.GnomeProducedTotal);
         StonksMultiText.text = "Stonks Multiplier: +" + data.StonksMulti*100 + "%";
+
+        data.AnzahlBuildings = data.BongoCatAnzahl + data.ChadAnzahl + data.PepeAnzahl;
 
         ZeitTick();
     }
@@ -96,7 +102,7 @@ public class Controller : MonoBehaviour
     public void ZeitTick()
     {
         System.Threading.Thread.Sleep(10); //0.01 Sekunde
-        data.Gnomes += data.GnomesPerSecond*0.01*(data.StonksMulti+1);
+        data.Gnomes += data.GnomesPerSecond*0.01*(data.StonksMulti+1) +      (data.AnzahlBuildings-data.ChadAnzahl)*data.ChadExtra*data.ChadAnzahl;
         data.GnomeProducedTotal += data.GnomesPerSecond*0.01 * (data.StonksMulti + 1);
 
     }

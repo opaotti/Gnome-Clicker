@@ -16,7 +16,7 @@ public class UpgradeScript : MonoBehaviour
     public string Name;
     public double ChadExtra; // bei chad anzahl für alle nicht Chad Objekte so und so viele gps mehr
     public int PepeExtra; //-> IDBuild==4 -> bei welche Gebäude Pepe bonus aktiviert wird s.b. Miner-Oma
-    
+
     public Controller controller;
 
     public GameObject Upgrade;
@@ -29,10 +29,50 @@ public class UpgradeScript : MonoBehaviour
     public TMP_Text InfoNameText;
     public TMP_Text InfoDescription;
     public TMP_Text BuyText;
-    
+
+
+    public int PepeExtraAnzahl; //wird zur Initialisierung definiert. Damit das Programm weiß welcher Wert über 15 sein muss
+
     public void Buy()
     {
+        if (controller.data.Gnomes >= price)
+        {
+            controller.data.Gnomes -= price;
+            
+            if (type == 1)
+            {
+                controller.data.StonksMulti += percent;
+            }
+            if (type == 2)
+            {
+                if (ID == 2)
+                {
+                    controller.data.PepeMulti *= 2;
+                }
+                if (ID == 3)
+                {
+                    controller.data.BongoCatMulti *= 2;
+                }
 
+                if (IDBuild == 2)
+                {
+                    controller.data.ChadExtra += ChadExtra;
+                }
+                if(IDBuild == 3)
+                {
+                    controller.data.ClickMulti *= 2;
+                    controller.data.ChadMulti *= 2;
+                }
+                if(IDBuild == 4)
+                {
+                    if (PepeExtra == 3)
+                    {
+                        controller.data.BongoCatMulti += 0.01 * (controller.data.PepeAnzahl / (PepeExtra - 1));
+                    }
+                }
+            }
+            
+        }
     }
 
 
@@ -45,61 +85,59 @@ public class UpgradeScript : MonoBehaviour
 
         BuyText.text = "Buy: " + price.ToString() + " Gnomes";
         Info.transform.position = ZENTRUM.transform.position;
+
+
+        Name = controller.data.IDNames[ID];
+        InfoNameText.text = Name + " Power-Up";
+
+        if (IDBuild == 1)
+        {
+            InfoDescription.text = Name + " macht jetzt doppelt so viel Gnomes pro Sekunde.";
+        }
+        if (IDBuild == 2)
+        {
+            InfoDescription.text = Name + " kriegt +" + ChadExtra + " für jeden nicht-Chad";
+        }
+        if (IDBuild == 3)
+        {
+            InfoDescription.text = Name + " macht doppelt so viele Gnomes pro Sekunde und zusätzlich wird auch die Gnomes-per-Click verdoppelt.";
+        }
+        if (IDBuild == 4 & controller.data.PepeAnzahl>0 & PepeExtraAnzahl>=15)
+        {
+            InfoDescription.text = controller.data.IDNames[PepeExtra] + " macht für jeden " + (PepeExtra - 1) + ". Pepe 1% Gnome pro Sekunde mehr. Pepe macht selbst nochmal 2-mal so viel wie davor";
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (type== 0)
+        if (shown == false)
         {
-            Debug.Log("war nen Upgrade test");
-        }
-        if (type== 1)
-        {
-            StonksText.text = (percent*100).ToString() + "% Stonks";
-            if (controller.data.GnomeProducedTotal>= unlock)
+            if (type == 0)
             {
-                controller.data.UpgradesShowed++;
-                shown= true;
+                Debug.Log("war nen Upgrade test");
             }
-        }
-        if (type== 2)
-        {
-            if (ID == 1 & controller.data.ChadAnzahl>= unlock)
+            if (type == 1)
             {
-                controller.data.UpgradesShowed++;
-                shown = true;
+                StonksText.text = (percent * 100).ToString() + "% Stonks";
+                if (controller.data.GnomeProducedTotal >= unlock)
+                {
+                    controller.data.UpgradesShowed++;
+                    shown = true;
+                }
+
+
+
             }
-            if (ID == 2 & controller.data.PepeAnzahl>= unlock)
+            if (type == 2)
             {
-                controller.data.UpgradesShowed++;
-                shown = true;
-            }
-            if(ID == 3 & controller.data.BongoCatAnzahl>= unlock)
-            {
-                controller.data.UpgradesShowed++;
-                shown = true;
+                if ((ID == 1 & controller.data.ChadAnzahl >= unlock) || (ID == 2 & controller.data.PepeAnzahl >= unlock) || (ID == 3 & controller.data.BongoCatAnzahl >= unlock))
+                {
+                    shown = true;
+                    controller.data.UpgradesShowed++;
+                }
             }
 
-            Name = controller.data.IDNames[ID];
-            InfoNameText.text = Name + " Power-Up";
-            
-            if(IDBuild == 1)
-            {
-                InfoDescription.text = Name + " macht jetzt doppelt so viel Gnomes pro Sekunde.";
-            }
-            if (IDBuild == 2)
-            {
-                InfoDescription.text = Name + " kriegt +" + ChadExtra + " für jeden nicht-Chad";
-            }
-            if (IDBuild == 3)
-            {
-                InfoDescription.text = Name + " macht doppelt so viele Gnomes pro Sekunde und zusätzlich wird auch die Gnomes-per-Click verdoppelt.";
-            }
-            if (IDBuild == 4)
-            {
-                InfoDescription.text = controller.data.IDNames[PepeExtra] + " macht für jeden " + PepeExtra + ". 1% Gnome pro Sekunde mehr.";
-            }
         }
     }
 }

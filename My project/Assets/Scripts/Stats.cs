@@ -11,6 +11,7 @@ public class Stats : MonoBehaviour
     public TMP_Text Clicks;
     public TMP_Text GinBank;
     public TMP_Text GTOTAL;
+    public TMP_Text AnzahlBuildings;
 
     public Data data;
 
@@ -30,5 +31,6 @@ public class Stats : MonoBehaviour
         Clicks.text = "Total Gnome-Clicks: " + data.TotalClicks;
         GinBank.text = "Gnomes in Bank: " + data.Gnomes;
         GTOTAL.text = " total produced Gnomes: " + data.GnomeProducedTotal;
+        AnzahlBuildings.text = "Anzahl Buildings: " + data.AnzahlBuildings;
     }
 }
