@@ -10,12 +10,6 @@ public class Controller : MonoBehaviour
     public Data data;
 
 
-    public TMP_Text GpS;
-    public TMP_Text GpClick;
-    public TMP_Text Clicks;
-    public TMP_Text GinBank;
-    public TMP_Text GTOTAL;
-    public TMP_Text StonksMultiText;
 
     public TMP_Text GnomesText;
 
@@ -28,12 +22,14 @@ public class Controller : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     private void Start()
     {
         data = new Data();
 
         BongoCatAnzahl= data.BongoCatAnzahl;
+
 
     }
 
@@ -50,13 +46,6 @@ public class Controller : MonoBehaviour
     void Update()
     {
         GnomesText.text = OhneKomma(data.Gnomes) + " Gnomes";
-
-        GpS.text = "GpS: " + data.GnomesPerSecond;
-        GpClick.text = "Gnomes per Click: " + data.GnomesPerClick;
-        Clicks.text = "Total Gnome-Clicks: " + data.TotalClicks;
-        GinBank.text = "Gnomes in Bank: " + OhneKomma(data.Gnomes);
-        GTOTAL.text = " total produced Gnomes: " + OhneKomma(data.GnomeProducedTotal);
-        StonksMultiText.text = "Stonks Multiplier: +" + data.StonksMulti*100 + "%";
 
         data.AnzahlBuildings = data.BongoCatAnzahl + data.ChadAnzahl + data.PepeAnzahl;
 

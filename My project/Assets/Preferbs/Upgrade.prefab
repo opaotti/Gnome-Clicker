@@ -1010,10 +1010,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: 264}
-  m_SizeDelta: {x: 470, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 170, y: -102}
+  m_SizeDelta: {x: 469.87, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1090129671494542604
 CanvasRenderer:
@@ -1068,9 +1068,13 @@ MonoBehaviour:
   type: 0
   percent: 0
   ID: 0
+  IDBuild: 0
   IDextra: 0
   price: 0
   unlock: 0
+  Name: 
+  ChadExtra: 0
+  PepeExtra: 0
   controller: {fileID: 0}
   Upgrade: {fileID: 4188544671989702574}
   Info: {fileID: 2493525676586543967}
@@ -1079,6 +1083,13 @@ MonoBehaviour:
   InfoNameText: {fileID: 5948031426066087433}
   InfoDescription: {fileID: 7552461048929619046}
   BuyText: {fileID: 3579975431531369900}
+  NameGO: {fileID: 3639143710776286056}
+  StonksImage: {fileID: 7741574082867600517}
+  ProfilImage: {fileID: 1934737780790943635}
+  InfoButton: {fileID: 4404708438741956377}
+  Transformas: {fileID: 3274337719150874585}
+  scrollbar: {fileID: 0}
+  PepeExtraAnzahl: 0
 --- !u!1 &4404708438741956377
 GameObject:
   m_ObjectHideFlags: 0

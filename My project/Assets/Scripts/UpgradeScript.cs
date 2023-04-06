@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeScript : MonoBehaviour
 {
@@ -30,6 +31,16 @@ public class UpgradeScript : MonoBehaviour
     public TMP_Text InfoDescription;
     public TMP_Text BuyText;
 
+    //für sachen mit stonks:
+    public GameObject NameGO;
+    public GameObject StonksImage;
+
+    //für sachen mit was anderem:
+    public GameObject ProfilImage;
+    public GameObject InfoButton;
+
+    public Transform Transformas;
+    public Scrollbar scrollbar;
 
     public int PepeExtraAnzahl; //wird zur Initialisierung definiert. Damit das Programm weiß welcher Wert über 15 sein muss
 
@@ -139,5 +150,40 @@ public class UpgradeScript : MonoBehaviour
             }
 
         }
+        else
+        {
+            Upgrade.SetActive(true);
+            if (type == 1)
+            {
+                Stonks(true);
+            }
+            else
+            {
+                Stonks(false);
+            }
+        }
+    }
+
+    void Stonks(bool wirklich) 
+    {
+        if (wirklich)
+        {
+            NameGO.SetActive(true);
+            StonksImage.SetActive(true);
+            ProfilImage.SetActive(false);
+            InfoButton.SetActive(false);
+        }
+        else
+        {
+            NameGO.SetActive(false);
+            StonksImage.SetActive(false);
+            ProfilImage.SetActive(true);
+            InfoButton.SetActive(true);
+        }
+    }
+
+    void platzieren()
+    {//                                               Anzahl der gezeigten           +             Abstand                       -    scrollbar
+        Transformas.position += new Vector3(0, -(controller.data.UpgradesShowed * 50 + (controller.data.UpgradesShowed - 1) * 10 - scrollbar.value*30), 0);
     }
 }
