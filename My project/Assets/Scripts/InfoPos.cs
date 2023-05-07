@@ -46,6 +46,7 @@ public class InfoPos : MonoBehaviour
     public void show()
     {
         Info.gameObject.SetActive(true);
+        //Info.layer= 20;
     }
 
     public void hide()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3785412616128768793}
   - component: {fileID: 297094257054349636}
   - component: {fileID: 8003691648457954878}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ProfilInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 9103211821438681328}
   - component: {fileID: 7494949652498443317}
   - component: {fileID: 7552461048929619046}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 7843170013345555625}
   - component: {fileID: 5784563252381973598}
   - component: {fileID: 7475403865978488839}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5784563252381973598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7208152194748794206}
+        m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
+        m_MethodName: InfoSchliessen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2259171998959193505
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +569,7 @@ GameObject:
   - component: {fileID: 7811463061619515018}
   - component: {fileID: 8631077747054016911}
   - component: {fileID: 1619167976948347449}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,7 +1223,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5964653622718607179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7208152194748794206}
+        m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
+        m_MethodName: InfoAnzeigen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4862080108906694482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1247,7 @@ GameObject:
   - component: {fileID: 5586927056756913323}
   - component: {fileID: 2582010020011785617}
   - component: {fileID: 7658966581340101256}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1302,7 +1326,7 @@ GameObject:
   - component: {fileID: 7139451513925857955}
   - component: {fileID: 922512265569451761}
   - component: {fileID: 5948031426066087433}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: InfoName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1583,7 @@ GameObject:
   - component: {fileID: 1974005381239249652}
   - component: {fileID: 1794782509939576231}
   - component: {fileID: 3586511145606466068}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CloseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1770,7 +1794,7 @@ GameObject:
   - component: {fileID: 4899382736765029827}
   - component: {fileID: 5890727242807139146}
   - component: {fileID: 4261632112897177825}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Rahmen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BreakInfinity;
+using System;   
+using System.IO;
 
 public class Data
 {
@@ -18,21 +20,31 @@ public class Data
 
     public int ClickMulti;
 
-    public int ChadAnzahl;
-    public double ChadMulti;
-    public double ChadExtra;
-    public int PepeAnzahl;
-    public double PepeMulti;
-    public int BongoCatAnzahl;
-    public double BongoCatMulti;
+    public int ChadAnzahl = 0;
+    public double ChadMulti = 1;
+    public double ChadExtra = 0;
+    public int PepeAnzahl = 0;
+    public double PepeMulti = 1;
+    public int BongoCatAnzahl = 0;
+    public double BongoCatMulti = 1;
+    
+    public string path = "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\IDs.txt";
+
+    string[] lines;
 
     public int UpgradesShowed=0; //Anzahl Upgrades die angezeigt werden
 
-    public Dictionary<int, string> IDNames = new Dictionary<int, string>();
+    public Dictionary<int, string> IDNames = new Dictionary<int, string>
+    {
+        {1, "Chad"},
+        {2, "Pepe" },
+        {3, "Bongo Cat" }
+    };
     
 
     public Data()
     {
+
         AnzahlBuildings= 0;
         Gnomes = 0;
         GnomesPerClick = 1;
@@ -55,9 +67,6 @@ public class Data
 
         BuildingsShown= true;
 
-        IDNames.Add(1, "Chad");
-        IDNames.Add(2, "Pepe");
-        IDNames.Add(3, "Bongo Cat");
 
 
     }

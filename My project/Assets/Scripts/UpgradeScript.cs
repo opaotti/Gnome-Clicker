@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.IO;
 
 public class UpgradeScript : MonoBehaviour
 {
@@ -41,6 +43,12 @@ public class UpgradeScript : MonoBehaviour
 
     public Transform Transformas;
     public Scrollbar scrollbar;
+
+    private int nummer; // gibt an an welcher stelle das Upgrade steht
+
+    string path = "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\IDs.txt";
+
+    string line;
 
     public int PepeExtraAnzahl; //wird zur Initialisierung definiert. Damit das Programm weiß welcher Wert über 15 sein muss
 
@@ -81,6 +89,7 @@ public class UpgradeScript : MonoBehaviour
                         controller.data.BongoCatMulti += 0.01 * (controller.data.PepeAnzahl / (PepeExtra - 1));
                     }
                 }
+                controller.data.UpgradesShowed--;
             }
             
         }
@@ -90,6 +99,11 @@ public class UpgradeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (ID <= 0)
+        {
+            ID = 1;
+        }
+        
         Upgrade.SetActive(false);
 
         Info.SetActive(false);
@@ -97,8 +111,14 @@ public class UpgradeScript : MonoBehaviour
         BuyText.text = "Buy: " + price.ToString() + " Gnomes";
         Info.transform.position = ZENTRUM.transform.position;
 
+        if (controller.data.IDNames[ID] != null)
+        {
+            Name = controller.data.IDNames[ID];
+        }
+        
 
-        Name = controller.data.IDNames[ID];
+
+
         InfoNameText.text = Name + " Power-Up";
 
         if (IDBuild == 1)
@@ -161,10 +181,12 @@ public class UpgradeScript : MonoBehaviour
             {
                 Stonks(false);
             }
+
+            platzieren();
         }
     }
 
-    void Stonks(bool wirklich) 
+    void Stonks(bool wirklich)
     {
         if (wirklich)
         {
@@ -183,7 +205,22 @@ public class UpgradeScript : MonoBehaviour
     }
 
     void platzieren()
-    {//                                               Anzahl der gezeigten           +             Abstand                       -    scrollbar
-        Transformas.position += new Vector3(0, -(controller.data.UpgradesShowed * 50 + (controller.data.UpgradesShowed - 1) * 10 - scrollbar.value*30), 0);
+    {//                                      Platz in der Reihe+             Abstand                     -    scrollbar
+        Transformas.position += new Vector3(0, -(nummer * 50 + (controller.data.UpgradesShowed - 1) * 10 - scrollbar.value*30), 0);
     }
+
+    public void InfoAnzeigen()
+    {
+        Info.SetActive(true);
+        Upgrade.transform.SetAsLastSibling();
+    }
+
+    public void InfoSchliessen()
+    {
+        Info.SetActive(false);
+    }
+
+
+
+
 }

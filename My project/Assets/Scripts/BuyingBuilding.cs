@@ -52,9 +52,9 @@ public class BuyingBuilding : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void InfoWirdAngezeigt()
     {
-        Building.SetActive(controller.data.BuildingsShown);
+        Building.transform.SetAsLastSibling();
     }
 
 

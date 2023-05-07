@@ -4,6 +4,7 @@ using UnityEngine;
 using BreakInfinity;
 using TMPro;
 using System;
+using System.IO;
 
 public class Controller : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class Controller : MonoBehaviour
 
     public int BongoCatAnzahl;
 
+    public GameObject Upgrades;
+    public GameObject Buildings;
 
+    string path = "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\IDs.txt";
+    string[] lines;
 
 
     // Start is called before the first frame update
@@ -30,10 +35,19 @@ public class Controller : MonoBehaviour
 
         BongoCatAnzahl= data.BongoCatAnzahl;
 
-
     }
 
-    
+    public void BuildingsShow()
+    {
+        data.BuildingsShown = true;
+        Debug.Log("buildings sollten angezeigt werden");
+    }
+
+    public void UpgradeShow()
+    {
+        data.BuildingsShown= false;
+        Debug.Log("upgrades sollten angezeigt werden");
+    }
 
     public void GnomeClick()
     {
@@ -45,11 +59,18 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IdTxtUpdate();
+
         GnomesText.text = OhneKomma(data.Gnomes) + " Gnomes";
 
         data.AnzahlBuildings = data.BongoCatAnzahl + data.ChadAnzahl + data.PepeAnzahl;
 
         ZeitTick();
+
+        Upgrades.SetActive(!data.BuildingsShown);
+        Buildings.SetActive(data.BuildingsShown);
+
+
     }
 
     public void BuyBuilding(double AktuellerPrice, int owned, int freeOwned)
@@ -110,4 +131,28 @@ public class Controller : MonoBehaviour
     {
         data.Gnomes += 10000;
     }
+
+    void IdTxtUpdate()
+    {
+        lines = File.ReadAllLines(path);
+
+        lines[1] = new string (data.ChadAnzahl.ToString());
+        lines[2] = new string (data.PepeAnzahl.ToString());
+        lines[3] = new string(data.BongoCatAnzahl.ToString());
+
+        File.WriteAllLines(path, lines);    
+    }
+
+    public void returnButton()
+    {
+        lines= File.ReadAllLines(path);
+
+
+        Debug.Log("Chad: " + lines[2]);
+        Debug.Log("Pepe: " + lines[3]);
+        Debug.Log("Bongo: " + lines[4]);
+        Debug.Log("Cat: " + data.BongoCatAnzahl);
+        Debug.Log("--------------------------------------");
+    }
+
 }
