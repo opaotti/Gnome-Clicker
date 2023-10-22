@@ -1,10 +1,17 @@
-Anzahl Buildings ID = Zeile + 1
+Cookies
+0
+total produced cookies
+0
+total clicks
+0
+stonksmulti
 1
-2
-3
-
-
-
+Anzahl Buildings ID = Zeile + 1
+0
+0
+0
+0
+0
 
 
 

@@ -32,10 +32,6 @@ public class InfoPos : MonoBehaviour
         
         Info.gameObject.SetActive(false);
 
-
-        Debug.Log("TransParent: " + TransParent.position);
-        Debug.Log("Info: " + Info.transform.position);
-
         NameText.text = BuyingBuilding.Name;
         GpSText.text = BuyingBuilding.GpSB.ToString() + " GpS";
         InfoText.text = Description;

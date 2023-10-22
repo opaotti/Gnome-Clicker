@@ -104,6 +104,8 @@ public class UpgradeScript : MonoBehaviour
             ID = 1;
         }
         
+        shown = false;
+
         Upgrade.SetActive(false);
 
         Info.SetActive(false);
@@ -111,11 +113,12 @@ public class UpgradeScript : MonoBehaviour
         BuyText.text = "Buy: " + price.ToString() + " Gnomes";
         Info.transform.position = ZENTRUM.transform.position;
 
+        /*
         if (controller.data.IDNames[ID] != null)
         {
             Name = controller.data.IDNames[ID];
         }
-        
+        */
 
 
 
@@ -135,7 +138,7 @@ public class UpgradeScript : MonoBehaviour
         }
         if (IDBuild == 4 & controller.data.PepeAnzahl>0 & PepeExtraAnzahl>=15)
         {
-            InfoDescription.text = controller.data.IDNames[PepeExtra] + " macht für jeden " + (PepeExtra - 1) + ". Pepe 1% Gnome pro Sekunde mehr. Pepe macht selbst nochmal 2-mal so viel wie davor";
+            InfoDescription.text = controller.data.IDNames[PepeExtra] + " macht für jeden " + (PepeExtra - 1) + ". Pepe 1% Gnome pro Sekunde mehr. Pepe macht selbst nochmal 2-mal so viel wie davor!";
         }
     }
 

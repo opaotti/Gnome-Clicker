@@ -27,6 +27,8 @@ public class Controller : MonoBehaviour
     string path = "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\IDs.txt";
     string[] lines;
 
+    
+
 
     // Start is called before the first frame update
     private void Start()
@@ -132,13 +134,29 @@ public class Controller : MonoBehaviour
         data.Gnomes += 10000;
     }
 
+    void IDtxtConfig()
+    {
+        lines = File.ReadAllLines(path);
+
+        lines[0] = "Cookies";
+        lines[1] = "0";
+        lines[2] = "total produced cookies";
+        lines[3] = "0";
+        lines[4] = "total clicks";
+        lines[5] = "0";
+        lines[6] = "Stonks Multi";
+        lines[7] = "1";
+        lines[8] = "Anzahl Buildings ID = Zeile - 9";
+    }
+    
+
     void IdTxtUpdate()
     {
         lines = File.ReadAllLines(path);
 
-        lines[1] = new string (data.ChadAnzahl.ToString());
-        lines[2] = new string (data.PepeAnzahl.ToString());
-        lines[3] = new string(data.BongoCatAnzahl.ToString());
+        lines[11] = new string (data.ChadAnzahl.ToString());
+        lines[12] = new string (data.PepeAnzahl.ToString());
+        lines[13] = new string(data.BongoCatAnzahl.ToString());
 
         File.WriteAllLines(path, lines);    
     }
@@ -147,12 +165,48 @@ public class Controller : MonoBehaviour
     {
         lines= File.ReadAllLines(path);
 
-
-        Debug.Log("Chad: " + lines[2]);
-        Debug.Log("Pepe: " + lines[3]);
-        Debug.Log("Bongo: " + lines[4]);
-        Debug.Log("Cat: " + data.BongoCatAnzahl);
+        Debug.Log("Erste Zeile (Intro): " + lines[1]);
+        Debug.Log("ChadTxT: " + lines[11]);
+        Debug.Log("PepeTxT: " + lines[12]);
+        Debug.Log("BongoTxT: " + lines[13]);
+        Debug.Log("Cat data: " + data.BongoCatAnzahl);
         Debug.Log("--------------------------------------");
     }
+
+    public void SaveGame(int SaveNr)
+    {
+        var SavePath = new Dictionary<int, string>()
+        {
+            {1, "\"E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save1.txt"},
+            {2, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save2.txt"},
+            {3, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save3.txt"},
+            {4, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save4.txt"}
+        };
+
+        lines = File.ReadAllLines (path);
+
+        File.WriteAllLines(SavePath[SaveNr], lines);
+
+    }
+
+    /*
+    public void OnLevelWasLoaded(int SaveNr)
+    {
+        var LoadPath = new Dictionary<int, string>()
+        {
+            {1, "\"E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save1.txt"},
+            {2, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save2.txt"},
+            {3, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save3.txt"},
+            {4, "E:\\Roman\\IT\\GitHub\\Gnome-Clicker\\My project\\Assets\\Scripts\\Save4.txt"}
+        };
+
+        lines = File.ReadAllLines(LoadPath[SaveNr]);
+
+        File.WriteAllLines(path, lines);
+
+        data.Gnomes = lines[1];
+    }
+    */
+
 
 }
